@@ -1,0 +1,106 @@
+/* Estilo header */
+body{
+    margin: 0;
+}
+
+.partidoGrande{
+    background-color: yellow;
+}
+
+nav{
+    display: flex;
+    padding: 30px;
+    background-color: black;
+    height: 15vh;
+}
+
+.nav-contenido{
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1{
+    font-size: 30px;
+}
+/* Estilo main */
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 70vh;
+    background-color: white;
+    padding: auto;
+}
+
+main >*{
+    font-size: 20px;
+    margin: auto;
+}
+
+img{
+    width: 75px;
+    height: 75px;
+}
+
+.centrado{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.juegos{
+    display: flex;
+    flex-direction: column;
+}
+
+.juegos > *{
+    margin: auto;
+}
+
+.centrado >*{
+    margin: auto;
+}
+
+/* Estilo footer */
+.footer-contenido{
+    display: flex;
+    padding: 10px;
+    background-color: black;
+    border: 0;
+    height: 15vh;
+    color: white;
+}
+
+h4{
+    margin: auto;
+}
+
+/* Estilos escaños */
+
+td{    
+    text-align: center;
+    border: 1px solid black;
+}
+
+.caja{
+    margin:0;
+    text-align: center;
+    padding: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border: none;
+    
+}
+
+
+/* BUSCADOR */
+
+.tabla{
+    background-color: black;
+    color: white;
+    padding: 0;
+    border: none;
+}

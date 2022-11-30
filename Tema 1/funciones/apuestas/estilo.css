@@ -1,0 +1,146 @@
+/* Estilo header */
+body{
+    overflow:hidden
+}
+
+nav{
+    display: flex;
+    margin: 0;
+    padding: 30px;
+    background-color: black;
+    border: 0;
+    height: 15vh;
+    margin: -10px;
+}
+
+.nav-contenido{
+    margin-left: auto;
+    margin-right: auto;
+    color: yellow;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1{
+    font-size: 30px;
+}
+
+
+a{
+    text-decoration: none;
+    color: yellow;
+    margin-left: 90px;
+}
+
+a:hover{
+    border: 1px solid yellow;
+    transition: 0.5s;
+}
+
+/* Estilo main */
+main{
+    flex-direction: row;
+    margin-left: -10px;
+    margin-right: -10px;
+    height: 65vh;
+    background-color: yellow;
+    padding: auto;
+    display: grid;
+    place-items: center;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.caja{    
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(240, 248, 255, 0.24);
+    border: 2px black solid;
+    padding: 9px;
+    color: black;
+    animation: aparecer 1.5s ease 0s 1 normal none;
+
+}
+
+.caja-estrella{
+    margin: auto;
+    background-color: rgba(241, 14, 14, 0.24);
+    border: 2px black solid;
+    padding: 9px;
+    color: black;
+    animation: aparecer 1.5s ease 0s 1 normal none;
+}
+
+/* Estilo footer */
+.footer-contenido{
+    display: flex;
+    margin: 0;
+    padding: 10px;
+    background-color: black;
+    border: 0;
+    height: 15vh;
+    margin: -10px;
+    color: yellow;
+
+
+}
+
+h3{
+    font-size: 30px;
+     margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Keyframes */
+
+@keyframes aparecer {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateY(-45px);
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateY(-24px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateY(-12px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateY(-6px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateY(-4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87% {
+		animation-timing-function: ease-out;
+		transform: translateY(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+

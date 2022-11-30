@@ -1,0 +1,5 @@
+try{
+    codigo
+}catch{
+    echo "ha habido un error"
+}

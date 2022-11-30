@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+    color: white;
+    margin: 30px;
+    text-align: center;
+}
+
+hr{
+    border: 3px white solid;
+}

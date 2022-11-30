@@ -1,0 +1,14 @@
+table{
+    border: 2px solid black;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+td{
+    border: 2px solid black;
+}
+
+.no-primo{
+    background-color: blue;
+}
