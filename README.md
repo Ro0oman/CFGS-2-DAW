@@ -1,4 +1,5 @@
 # CFGS-DAW
 En este repositorio econtrarás algunas de las practicas que he realizado a lo largo de mi paso por el ciclo superior DAW
 
-La finalidad de este repositorio es de alguna manera orientar a las futuras personas que vayan a realizar en curso y puedan necesitar material realizado por mi en el curso.
+En concreto en este repositorio podrás ver mi trabajo realizado durante el curso 2022-2023 del segundo año de la asignatura Desarrollo web en entorno servidor. Todo el contenido es trabajo realizado durante mis clases y será actualizado conforme avance el tiempo, logicamente hasta que acabe el curso.
+
