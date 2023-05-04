@@ -1,0 +1,623 @@
+body{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #202125;
+    font-weight: lighter;
+}
+
+/*                              HEADER                                    */
+#hola{  
+    margin: auto;
+    color: white;
+}
+
+.main{
+    height: 70vh;
+    display: flex;
+}
+
+header{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    color: white;
+    background-color: black; 
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding: 50px;
+}
+
+.titulo{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2{
+    font-size: 52px;
+    font-weight: lighter;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+a:hover{
+    text-decoration:overline;
+    color: white;
+}
+
+.logo{
+    margin-top: 10px;
+    width: 10%;
+}
+
+
+.titulo>a:hover{
+    text-decoration: none;
+}
+
+
+.usuario{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+
+    padding: 50px;
+}
+
+
+.usuario > h3 >a{
+    padding: 15px;
+    border: white 1px solid;
+    border-radius: 15px;
+}
+
+.usuario > h3 >a:hover{
+    text-decoration: none;
+    background-color: #202125;
+}
+
+h3{
+    padding: 15px;
+}
+
+/* Buscador */
+
+.buscador{
+    display: flex;
+}
+
+form{
+    padding: 20px;
+    margin: auto;
+
+}
+
+input{
+    border-radius: 20px;
+    height: 25px;
+    background-color: white;
+}
+
+::placeholder{
+    color: black;
+}
+
+input.placeholder {
+    text-align: center;
+}
+
+input:focus{
+   background-color: yellow;
+   color: black;
+   
+}
+
+/* Portada pagina */
+
+.portada{
+    border-radius: 25px;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    transition: 1s;
+}
+
+
+.contenedor-juegos{
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+.juego{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 23%;  
+    transition: 1s;
+}
+
+.juego > *{
+    border-radius: 20px;
+ 
+}
+
+.juego:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.juego>img{
+    height: 80%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.juego>a >img{
+    height: 80%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* JUEGOS  */
+.juegos{
+
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 23%;  
+    transition: 1s;
+}
+
+.juegos > *{
+    border-radius: 20px;
+}
+
+.juegos:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+
+.juegos>a >img{
+    object-fit: cover;
+    height: 40vh;
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+.saga{
+    display: flex;
+    background-color: #1B1C1E;
+    color: yellow;
+    text-align: center;
+    height: 50px;
+}
+
+.saga>h3{
+    margin: auto;
+}
+
+hr{
+    height: 1px;
+    background-color: yellow;
+    border: none;
+}
+
+
+/* Contenido pagina */
+
+
+.general{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.categoria{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.categoria > a{
+    border-radius: 25px;
+    font-size: 20px;
+    padding: 10px;
+    margin: auto;
+    text-decoration: none;
+}
+
+.categoria > a:hover{
+    background-color: black;
+}
+
+h3{
+    font-size: 20px;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+h4{
+    color: yellow;
+    padding-bottom: 10px;
+}
+
+.contenedor-juegos-general{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.contenedor-juegos-general > .juegos{
+    object-fit: cover;
+    border-radius: 25px;
+    width: 80%;
+}
+
+/* Footer */
+
+footer{
+    margin-top: 20px;
+    display: flex;
+    background-color: black;
+    padding: 30px;
+}
+
+footer > h4{
+    margin: auto;
+}
+
+.legal{
+    margin: auto;
+}
+
+
+
+.usuarioMovil{
+    display: none;
+}
+
+
+
+
+@media (max-width: 700px){ 
+
+    h2{
+        padding: 20px;
+        font-size: 40px;
+    }
+
+    .usuarioMovil{
+        margin-top: 30px;
+        display: flex;
+        font-size: medium;
+
+    }
+
+    .usuario{
+        display: none;
+    }
+
+    .nav{
+        display: none;
+    }
+    
+    .contenedor-juegos-movil{
+        display: grid;
+        grid-template-columns: 50% 50% ;
+        padding: 20px;
+        align-content: stretch;
+
+
+    }
+
+    .juego{
+        height: 50%;
+        width: 40%;
+        border-radius: 20px;
+    }
+
+    .imagenes{
+        display: grid;
+        grid-template-columns: auto auto ;
+        grid-template-rows: auto auto;
+        grid-gap: 15px;
+        align-content: stretch;
+
+    }
+
+    .imagenes > *{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        
+    }
+
+    .usuarioMovil{
+        display: flex;
+        flex-direction: row;
+        padding: 30px;
+    }
+
+    .categoriasMovil{
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        background-color: #191A1C;
+    }
+    
+    .categoriasMovil>*{
+        margin: auto;
+    }
+}
+
+
+/* Estilos LOGIN */
+.info{
+    margin: auto;
+    margin-bottom: 0;
+    width: 30%;
+}
+
+pre{
+    text-align: center;
+    font-size: large;
+    padding: 10px;
+    color: white;
+    background-color: gray;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+#formLogin{
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    color: black;
+    padding: 40px;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+#formLogin a:hover{
+    text-decoration: none;
+}
+.botones{
+    margin: auto;
+    margin-top: 10px;
+}
+
+input[type = submit] {
+    cursor: pointer;
+    border: none;
+    color: white;
+    padding: 15px;
+    background-color: black;
+    transition: 0.5s;
+ }
+
+ input[type = submit]:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    color: black;
+    background-color: white;
+}
+ 
+
+
+.botones a{
+    color: white;
+    border-radius: 15px;
+}
+
+#formLogin > a{
+    color: lightblue;
+}
+
+
+/* Registro */
+
+#registro{
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    color: black;
+    padding: 40px;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+#registro > *{
+    color: black;
+}
+
+#registro > a{
+    margin-bottom: 10px;
+    color: blue;
+}
+
+
+/* Producto a alquilar */
+
+.producto{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 50%;
+}
+
+.producto > h2{
+    color:white;
+    margin: 0;
+}
+
+.producto > button{
+    margin-top: 20px;
+    margin: 0;
+}
+
+.producto > h3{
+    color:yellow;
+}
+
+.producto > img{
+    margin: auto;
+    height: 40vh;
+    width: auto;
+    object-fit: contain;
+}
+
+.imagen-portada{
+    width: 20%;
+    height: 20%;
+}
+
+.alerta{
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: white;
+    text-align: center;
+}
+
+.alerta-done{
+    background-color: green;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: white;
+    text-align: center;
+}
+
+
+/* Apartado Administrador */
+/* Buscador */
+
+.nav-buscador{
+    border: 3px solid black;
+    background-color: #010618;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.form-buscador{
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    width: 40%;
+}
+
+.input-buscador{
+    width: 80%;
+}
+
+.form-buscador >*{
+    border-radius: 25px;
+    margin-right: auto;
+}
+
+
+#textoBuscador{
+    margin-left: 10px;
+    color: white;
+    width: 60%;
+}
+
+.nav-buscador{
+    margin: auto;
+}
+
+/* TABLA ADMIN */
+
+
+.tabla{
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+tr:scope{
+    background-color: yellow;
+    border: 2px yellow solid;
+}
+
+#insercion{
+    padding: 20px;
+    background-color: #010618;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.admin-juego:target{
+    background-color: rgba(255, 255, 0, 0.13);
+}
+
+.tabla > thead{
+    color: black;
+    border: none;
+    background-color: white;
+}
+
+.tabla tr{
+    border: 2px solid white;
+}
+
+.imagen{
+    width: 100px;
+    height: 100px;
+}
+
+.boton{
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px;
+    background-color: black;
+    transition: 0.5s;
+}
+
+.boton:hover{
+    transition: 0.5s;
+    color: black;
+    background-color: white;
+}
+
+.boton:hover > a{
+    color: black;
+}
+
+/* Insercion de datos admin */
+
+.insercion{
+    color: white;
+}
+
+
+/* Alquileres */
+
+.texto-centrado{
+    color: white;
+    margin: auto;
+    text-align: center;
+}

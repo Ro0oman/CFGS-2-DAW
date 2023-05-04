@@ -53,45 +53,11 @@ include_once('/opt/lampp/htdocs/php/prueba/Tema 5/conexion.php');
         }
         echo "</table>";
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $parametro = $_REQUEST['parametro'];
-            $genero =  $_REQUEST['cadena'];
-
-            $consulta = $pdo->prepare("SELECT * FROM ejercicioVideojuego  WHERE $parametro LIKE '$genero%'");
-            $consulta->execute();
-
-            echo "<table>";
-            echo "<tr><br>
-            <td class='tabla'>Nombre</td>
-            <td class='tabla'>Genero</td>
-            <td class='tabla'>Precio</td>
-            <td colspan='2' class='tabla'>Edicion</td>
-            </tr>";
-            while($registro = $consulta->fetch())
-            {
-                echo "<tr>";
-                echo    '<td>'.$registro['nombre'].'</td>
-                        <td>'.$registro['genero'].'</td>
-                        <td>'.$registro['precio'].'</td>';
-
-                /* Generamos los botones de editar y borrar */
-                echo '<td>
-                <button><a href="modificar.php?id='.$registro['id'].'&nombre='.$registro['nombre'].'&genero='.$registro['genero'].'&precio='.$registro['precio'].'">Editar</a></button></td>';
-                echo '<td>
-                <button><a href="eliminar.php?id='.$registro['id'].'">Eliminar</a></button></td>';
-                echo "</tr>";
-            }
-            echo "</table>";
-
-        }
-
-        $pdo = null;
-        $consulta = null;
 ?>
 
 <hr>Buscador
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" >
-<legend>Selecciona el parametro de busqueda:</legend>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" >
+    <legend>Selecciona el parametro de busqueda:</legend>
             <div>
                 <input type="radio" id="huey" name="parametro" value="nombre" required>
                 <label>Nombre</label>
@@ -112,9 +78,40 @@ include_once('/opt/lampp/htdocs/php/prueba/Tema 5/conexion.php');
             <div>
                 <input type="submit" value="Buscar">
             </div>
-        </fieldset></form>
+        </fieldset>
+    </form>
 
 
 <?php
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $parametro = $_REQUEST['parametro'];
+    $genero =  $_REQUEST['cadena'];
+
+    $consulta = $pdo->prepare("SELECT * FROM ejercicioVideojuego  WHERE $parametro LIKE '$genero%'");
+    $consulta->execute();
+
+    echo "<table>";
+    echo "<tr><br>
+    <td class='tabla'>Nombre</td>
+    <td class='tabla'>Genero</td>
+    <td class='tabla'>Precio</td>
+    </tr>";
+    while($registro = $consulta->fetch())
+    {
+        echo "<tr>";
+        echo    '<td>'.$registro['nombre'].'</td>
+                <td>'.$registro['genero'].'</td>
+                <td>'.$registro['precio'].'</td>';
+
+        echo "</tr>";
+    }
+    echo "</table>";
+
+}
+
+$pdo = null;
+$consulta = null;
+
 include("/opt/lampp/htdocs/php/prueba/includes/pie.html");
 ?>

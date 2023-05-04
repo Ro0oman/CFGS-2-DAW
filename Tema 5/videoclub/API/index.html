@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+    <title>API Conexion</title>
+</head>
+<body>
+    <script>
+        let ruta = "http://192.168.18.92/php/prueba/Tema%205/videoclub/API/api.php";
+        let respuesta = fetch(ruta)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(json){
+            console.log(json);
+        })
+        .catch((error) => {
+                $('.contenido').prepend('<h1>Pokemon no econtrado :(</h1>');
+                console.error('Error:', error);
+        });
+        console.log(respuesta);
+    </script>
+</body>
+</html>

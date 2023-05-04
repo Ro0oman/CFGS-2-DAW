@@ -1,6 +1,7 @@
 /* Estilo header */
 body{
     margin: 0;
+    background-color: rgb(236, 231, 231);
 }
 
 .partidoGrande{
@@ -11,7 +12,7 @@ nav{
     display: flex;
     padding: 30px;
     background-color: black;
-    height: 15vh;
+    height: 15%;
 }
 
 .nav-contenido{
@@ -29,8 +30,8 @@ main{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 70vh;
-    background-color: white;
+    height: 70%;
+    background-color: lightblue;
     padding: auto;
 }
 
@@ -98,9 +99,17 @@ td{
 
 /* BUSCADOR */
 
+table{
+    width: 100%;
+
+}
+
 .tabla{
-    background-color: black;
-    color: white;
+    background-color: lightblue;
+    color: black;
     padding: 0;
     border: none;
 }
+
+/* PDO PHP */
+

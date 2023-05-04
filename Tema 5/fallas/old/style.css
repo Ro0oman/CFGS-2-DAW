@@ -1,0 +1,32 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: grey;
+}
+
+.contenido{
+    margin: 50px;
+    display: flex;
+}
+
+.tabla{
+    font-size: 20px;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    border-collapse: collapse;
+
+}
+
+.tabla img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+tr{
+    border: 2px solid yellow;
+}

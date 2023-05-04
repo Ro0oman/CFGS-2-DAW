@@ -1,0 +1,39 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    text-align: center;
+    color: yellow;
+}
+
+.caja-imagenes{
+    color: yellow;
+    width: 70%;
+    background-color: black;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+.caja{
+    padding: 20px;
+    display: flex;
+    border-radius: 25px;
+    border: 3px solid yellow;
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+}
+
+.caja>*{
+    margin: auto;
+}
+
+.caja>img{
+    scale: 3/2;
+    object-fit: cover;
+    border-radius: 25px;
+    width: 200px;
+    height: 200px;
+}

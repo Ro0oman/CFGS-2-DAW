@@ -3,7 +3,3 @@
         <input id="fileTest" name="fileTest" type="file">
         <button type="submit">Guardar</button>
     </form>
-
-<?php
-
-?>

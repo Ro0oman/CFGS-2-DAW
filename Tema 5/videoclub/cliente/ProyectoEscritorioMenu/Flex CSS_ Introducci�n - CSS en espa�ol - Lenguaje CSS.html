@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e7bbf">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <title>Flex CSS: Introducción - CSS en español - Lenguaje CSS</title>
+  <link rel="preload" href="/critical.css" as="style">
+  <link rel="preload" href="/assets/fonts/blinker-vf.woff2" as="font" crossorigin>
+  <link rel="preload" href="/assets/fonts/scope-one-400.woff2" as="font" crossorigin>
+  <meta name="description" content="Flex es un módulo de CSS para crear diseños flexibles con un mecanismo novedoso que deja atrás los antiguos y problemáticos sistemas tradicionales de CSS.">
+  <link rel="stylesheet" href="/critical.css">
+  <link rel="stylesheet" href="/theme.css">
+  <script type="module" src="/main.js"></script>
+  <link rel="canonical" href="https://lenguajecss.com/css/maquetacion-y-colocacion/flex/">
+  <meta property="og:title" content="Flex CSS: Introducción - CSS en español">
+  <meta property="og:image" content="https://lenguajecss.com/css/maquetacion-y-colocacion/flex/flex-css.png">
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Flex es un módulo de CSS para crear diseños flexibles con un mecanismo novedoso que deja atrás los antiguos y problemáticos sistemas tradicionales de CSS.">
+  <meta property="og:url" content="https://lenguajecss.com/css/maquetacion-y-colocacion/flex/">
+  <meta property="twitter:url" content="https://lenguajecss.com/css/maquetacion-y-colocacion/flex/">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:creator" content="@Manz">
+  <meta property="twitter:title" content="Flex CSS: Introducción - CSS en español">
+  <meta property="twitter:description" content="Flex es un módulo de CSS para crear diseños flexibles con un mecanismo novedoso que deja atrás los antiguos y problemáticos sistemas tradicionales de CSS.">
+  <meta property="twitter:image:src" content="https://lenguajecss.com/css/maquetacion-y-colocacion/flex/flex-css.png">
+</head>
+<body class="css post"><div class="page">
+    <div class="sidebar">
+      <div class="logo flex-center">
+  <a href="/">
+    <img width="42" height="42" src="/assets/logo.svg" alt="Logo">
+    Lenguaje CSS
+  </a>
+  <div class="icons" style="--icon-size: 32px; --icon-side-padding: 0.15em">
+    <a href="https://twitter.com/Manz" title="Twitter"><svg-icon type="social" name="twitter"></svg-icon></a>
+    <a href="https://twitch.tv/manzdev" title="Twitch"><svg-icon type="social" name="twitch"></svg-icon></a>
+    <a href="https://instagram.com/manz.dev" title="Instagram"><svg-icon type="social" name="instagram"></svg-icon></a>
+    <a href="https://youtube.com/ManzDev?sub_confirmation=1" title="YouTube"><svg-icon type="social" name="youtube"></svg-icon></a>
+    <a href="https://discord.manz.dev/" title="Servidor de Discord"><svg-icon type="social" name="discord"></svg-icon></a>
+  </div>
+  <span>Un sitio web de <a href="https://manz.dev/"><mark>Manz.dev</mark></a></span>
+</div>
+
+      <form class="search flex-center" action="https://www.google.com/search">
+  <label><span>Buscar:</span> <input type="search" name="q" placeholder="Buscar un tema (ej: flex, grid...)" autocomplete="off"></label>
+  <label><span>Sitio:</span> <input type="hidden" name="q" value="site:lenguajejs.com OR site:lenguajecss.com OR site:lenguajehtml.com OR site:terminaldelinux.com OR site:manz.dev"></label>
+  <div class="search-results"></div>
+</form>
+
+      
+
+<style>
+  sidebar-link {
+    --logo-image: url(/css/logo.svg);
+  }
+</style>
+
+<div class="toc"><sidebar-link title="Volver al índice" href="/css/" back direct></sidebar-link><sidebar-link href="/css/cheatsheets/" title="CSS3 Cheatsheet" direct></sidebar-link><sidebar-section title="Introducción a CSS" href="/css/introduccion/"><sidebar-link href="/css/introduccion/que-es-css/" title="¿Qué es CSS?"></sidebar-link><sidebar-link href="/css/introduccion/como-usar-css/" title="¿Cómo usar CSS?"></sidebar-link><sidebar-link href="/css/introduccion/estructura-de-css/" title="Estructura de CSS"></sidebar-link><sidebar-link href="/css/introduccion/navegadores-web/" title="Navegadores web"></sidebar-link><sidebar-link href="/css/introduccion/niveles-y-prefijos-css/" title="Niveles de CSS y prefijos"></sidebar-link><sidebar-link href="/css/introduccion/guia-css/" title="La guía de propiedades CSS"></sidebar-link></sidebar-section><sidebar-section title="Cascada CSS" href="/css/cascada-css/"><sidebar-link href="/css/cascada-css/herencia-css/" title="Herencia en CSS"></sidebar-link><sidebar-link href="/css/cascada-css/que-es-cascada/" title="Cascada en CSS"></sidebar-link><sidebar-link href="/css/cascada-css/css-custom-properties/" title="Variables CSS"></sidebar-link></sidebar-section><sidebar-section title="Calidad de código" href="/css/calidad-de-codigo/"><sidebar-link href="/css/calidad-de-codigo/minificar-css/" title="Minificar CSS"></sidebar-link><sidebar-link href="/css/calidad-de-codigo/stylelint/" title="StyleLint: Linter CSS"></sidebar-link></sidebar-section><sidebar-section title="Modelo de cajas" href="/css/modelo-de-cajas/"><sidebar-link href="/css/modelo-de-cajas/unidades-css/" title="Unidades CSS"></sidebar-link><sidebar-link href="/css/modelo-de-cajas/que-es/" title="Modelo de cajas"></sidebar-link><sidebar-link href="/css/modelo-de-cajas/box-sizing/" title="La propiedad box-sizing"></sidebar-link><sidebar-link href="/css/modelo-de-cajas/margenes-y-rellenos/" title="Márgenes y rellenos"></sidebar-link><sidebar-link href="/css/modelo-de-cajas/bordes/" title="Bordes CSS"></sidebar-link><sidebar-link href="/css/modelo-de-cajas/border-radius/" title="Esquinas redondeadas"></sidebar-link><sidebar-link href="/css/modelo-de-cajas/propiedades-logicas-css/" title="Propiedades lógicas CSS"></sidebar-link><sidebar-link href="/css/modelo-de-cajas/bordes-imagenes/" title="Bordes con imágenes"></sidebar-link><sidebar-link href="/css/modelo-de-cajas/funciones-css/" title="Funciones CSS"></sidebar-link></sidebar-section><sidebar-section title="Colores, fondos e imágenes" href="/css/colores-y-fondos/"><sidebar-link href="/css/colores-y-fondos/colores-css/" title="Colores CSS"></sidebar-link><sidebar-link href="/css/colores-y-fondos/propiedad-opacity/" title="La propiedad opacity"></sidebar-link><sidebar-link href="/css/colores-y-fondos/propiedad-background-image/" title="La propiedad background-image"></sidebar-link><sidebar-link href="/css/colores-y-fondos/linear-gradient/" title="Gradientes lineales"></sidebar-link><sidebar-link href="/css/colores-y-fondos/radial-gradient/" title="Gradientes radiales"></sidebar-link><sidebar-link href="/css/colores-y-fondos/conic-gradient/" title="Gradientes cónicos"></sidebar-link><sidebar-link href="/css/colores-y-fondos/imagenes-css/" title="Imágenes y Objetos"></sidebar-link></sidebar-section><sidebar-section title="Selectores CSS" href="/css/selectores/"><sidebar-link href="/css/selectores/selectores-basicos/" title="Selectores CSS básicos"></sidebar-link><sidebar-link href="/css/selectores/selectores-avanzados/" title="Selectores CSS avanzados"></sidebar-link><sidebar-link href="/css/selectores/pseudoclases/" title="Pseudoclases CSS"></sidebar-link><sidebar-link href="/css/selectores/pseudoclases-avanzadas/" title="Pseudoclases CSS avanzadas"></sidebar-link><sidebar-link href="/css/selectores/pseudoelementos/" title="Pseudoelementos CSS"></sidebar-link><sidebar-link href="/css/selectores/atributos/" title="Atributos CSS"></sidebar-link></sidebar-section><sidebar-section title="Reglas CSS" href="/css/reglas-css/"><sidebar-link href="/css/reglas-css/que-son-reglas-css/" title="¿Qué son las reglas CSS?"></sidebar-link><sidebar-link href="/css/reglas-css/la-regla-import/" title="La regla @import"></sidebar-link><sidebar-link href="/css/reglas-css/la-regla-layer/" title="La regla @layer"></sidebar-link><sidebar-link href="/css/reglas-css/la-regla-supports/" title="La regla @supports"></sidebar-link></sidebar-section><sidebar-section title="Fuentes y tipografías" href="/css/fuentes-y-tipografias/"><sidebar-link href="/css/fuentes-y-tipografias/tipografias/" title="Tipografías CSS"></sidebar-link><sidebar-link href="/css/fuentes-y-tipografias/tipografias-externas/" title="Tipografías externas"></sidebar-link><sidebar-link href="/css/fuentes-y-tipografias/fuentes-variables/" title="Fuentes variables CSS"></sidebar-link><sidebar-link href="/css/fuentes-y-tipografias/textos-y-alineaciones/" title="Textos y alineaciones"></sidebar-link><sidebar-link href="/css/fuentes-y-tipografias/propiedades-avanzadas/" title="Propiedades avanzadas"></sidebar-link><sidebar-link href="/css/fuentes-y-tipografias/caracteristicas-personalizadas/" title="Características personalizadas"></sidebar-link></sidebar-section><sidebar-section title="Representación de datos" href="/css/representacion-datos/"><sidebar-link href="/css/representacion-datos/tablas-css/" title="Tablas CSS"></sidebar-link><sidebar-link href="/css/representacion-datos/listas-css/" title="Listas CSS"></sidebar-link><sidebar-link href="/css/representacion-datos/contadores-css/" title="Contadores CSS"></sidebar-link></sidebar-section><sidebar-section title="Maquetación y colocación" href="/css/maquetacion-y-colocacion/"><sidebar-link href="/css/maquetacion-y-colocacion/propiedad-display/" title="La propiedad display"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/posicionamiento-css/" title="La propiedad position"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/desplazamientos/" title="La propiedad float"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/flex/" title="Flex CSS: Introducción"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/flex-alinear/" title="Flex CSS: Alinear elementos"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/flex-organizar/" title="Flex CSS: Flexibilidad"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/grid-css/" title="Grid CSS: Introducción"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/grid-css-alinear/" title="Grid CSS: Alinear elementos"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/grid-css-areas/" title="Grid CSS: Grid por áreas"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/grid-css-celdas-irregulares/" title="Grid CSS: Celdas irregulares"></sidebar-link><sidebar-link href="/css/maquetacion-y-colocacion/grid-css-lineas-nombradas/" title="Grid CSS: Líneas con nombre"></sidebar-link></sidebar-section><sidebar-section title="Interacciones" href="/css/interacciones/"><sidebar-link href="/css/interacciones/contornos/" title="Contornos"></sidebar-link><sidebar-link href="/css/interacciones/cursor-del-raton/" title="Cursor del ratón"></sidebar-link><sidebar-link href="/css/interacciones/scroll-y-overflow/" title="Scroll y Overflow"></sidebar-link><sidebar-link href="/css/interacciones/snap-scroll/" title="CSS Snap Scroll"></sidebar-link></sidebar-section><sidebar-section title="Sombras" href="/css/sombras/"><sidebar-link href="/css/sombras/text-shadow/" title="Sombras CSS en textos"></sidebar-link><sidebar-link href="/css/sombras/box-shadow/" title="Sombras CSS en cajas"></sidebar-link><sidebar-link href="/css/sombras/drop-shadow/" title="Sombras idénticas CSS"></sidebar-link></sidebar-section><sidebar-section title="Efectos" href="/css/efectos/"><sidebar-link href="/css/efectos/filtros-css/" title="Filtros CSS"></sidebar-link><sidebar-link href="/css/efectos/modos-de-fusion/" title="Modos de fusión CSS"></sidebar-link></sidebar-section><sidebar-section title="Máscaras y recortes" href="/css/mascaras-y-recortes/"><sidebar-link href="/css/mascaras-y-recortes/clip-path/" title="La propiedad clip-path"></sidebar-link><sidebar-link href="/css/mascaras-y-recortes/mask-image/" title="La propiedad mask-image"></sidebar-link></sidebar-section><sidebar-section title="Responsive Web Design" href="/css/responsive-web-design/"><sidebar-link href="/css/responsive-web-design/que-es/" title="¿Qué es Responsive Design?"></sidebar-link><sidebar-link href="/css/responsive-web-design/bases-responsive/" title="Bases del Responsive Design"></sidebar-link><sidebar-link href="/css/responsive-web-design/media-queries/" title="Media Queries"></sidebar-link><sidebar-link href="/css/responsive-web-design/medios-impresos/" title="Medios impresos"></sidebar-link><sidebar-link href="/css/responsive-web-design/medios-paginados/" title="Medios paginados"></sidebar-link><sidebar-link href="/css/responsive-web-design/preferencias-usuario/" title="Preferencias de usuario"></sidebar-link></sidebar-section><sidebar-section title="Animaciones CSS" href="/css/animaciones/"><sidebar-link href="/css/animaciones/transiciones/" title="Transiciones CSS"></sidebar-link><sidebar-link href="/css/animaciones/timing-function/" title="Funciones de tiempo"></sidebar-link><sidebar-link href="/css/animaciones/animaciones/" title="Animaciones CSS"></sidebar-link><sidebar-link href="/css/animaciones/keyframes/" title="La regla @keyframes"></sidebar-link></sidebar-section><sidebar-section title="Transformaciones CSS" href="/css/transformaciones/"><sidebar-link href="/css/transformaciones/transform/" title="Transformaciones CSS"></sidebar-link><sidebar-link href="/css/transformaciones/transform-translate/" title="Translaciones 2D"></sidebar-link><sidebar-link href="/css/transformaciones/transform-rotate/" title="Rotaciones 2D"></sidebar-link><sidebar-link href="/css/transformaciones/transform-scale/" title="Escalado 2D"></sidebar-link><sidebar-link href="/css/transformaciones/transform-skew/" title="Deformaciones 2D"></sidebar-link><sidebar-link href="/css/transformaciones/transform-3d/" title="Transformaciones 3D"></sidebar-link><sidebar-link href="/css/transformaciones/perspective/" title="Perspectivas CSS"></sidebar-link></sidebar-section><sidebar-section title="Dibujar con CSS" href="/css/dibujar-con-css/"><sidebar-link href="/css/dibujar-con-css/como-empezar/" title="¿Cómo dibujar con CSS?"></sidebar-link><sidebar-link href="/css/dibujar-con-css/estructura-html/" title="Primeros pasos: Estructura HTML"></sidebar-link><sidebar-link href="/css/dibujar-con-css/estructura-css/" title="Primeros pasos: Estructura CSS"></sidebar-link></sidebar-section></div>
+
+      
+    </div>
+    <div class="contents">
+      <header class="mega">
+  <h1>Flex CSS: Introducción</h1><h2>Modelo de cajas flexibles</h2></header>
+
+      <div class="content ">
+  <div class="breadcrumbs">
+  <a href="/">ATRÁS</a> <span>ᐳ</span> <a href="/css/">css</a> <span>ᐳ</span> <a href="/css/maquetacion-y-colocacion/flex/">Flex CSS: Introducción</a>
+</div>
+<p>En CSS, inicialmente se utilizaba el posicionamiento (<em>static, relative, absolute...</em>), los elementos en línea o en bloque (<em>y derivados</em>) o la propiedad <strong>float</strong> para realizar maquetaciones, lo que a grandes rasgos no dejaba de ser un sistema de creación de diseños bastante tosco que no encajaba con los retos que tenemos en la actualidad: sistemas de escritorio, dispositivos móviles, múltiples resoluciones, etc...</p>
+<p><strong>Flex</strong> (<em>también llamado flexbox</em>) es un sistema de <strong>elementos flexibles</strong> que llega con la idea de olvidar estos mecanismos y acostumbrarnos a una mecánica más potente, limpia y personalizable, en la que los elementos HTML se adaptan y colocan automáticamente y es más fácil personalizar los diseños de una página web.</p>
+<p><img src="flex.png" alt="Flex CSS" width="1067" height="417" loading="lazy"></p>
+<p><strong>Flex</strong> está especialmente diseñado para crear, mediante CSS, estructuras de <strong>una sóla dimensión</strong>.</p>
+<h3 id="conceptos" tabindex="-1">Conceptos</h3>
+<p>Para empezar a utilizar <strong>flex</strong> lo primero que debemos hacer es conocer algunos de los elementos básicos de este nuevo esquema, que son los siguientes:</p>
+<p><img src="flex-como-funciona.png" alt="Flex CSS: ¿Cómo funciona?" width="1020" height="264" loading="lazy"></p>
+<ul>
+<li>
+<p><strong>Contenedor</strong>: Es el elemento padre que tendrá en su interior cada uno de los ítems flexibles. Observa que al contrario que muchas otras estructuras CSS, por norma general, en Flex establecemos las propiedades al elemento padre.</p>
+<ul>
+<li>
+<p><strong>Eje principal</strong>: Los contenedores flexibles tendrán una orientación principal específica. Por defecto, el eje principal del contenedor flex es en <strong>horizontal</strong> (<em>en fila</em>).</p>
+</li>
+<li>
+<p><strong>Eje secundario</strong>: De la misma forma, los contenedores flexibles tendrán una orientación secundaria, perpendicular a la principal. Si la principal es en horizontal, la secundaria será en <strong>vertical</strong> (<em>y viceversa</em>).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Ítem</strong>: Cada uno de los <strong>hijos</strong> que tendrá el contenedor en su interior.</p>
+</li>
+</ul>
+<h3 id="modalidades-de-flex" tabindex="-1">Modalidades de flex</h3>
+<p>Una vez tenemos claro esto, imaginemos el siguiente escenario:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token comment">&lt;!-- Flex container --></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item item-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span> <span class="token comment">&lt;!-- Flex items --></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item item-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item item-3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>Para activar el modo <strong>flex</strong>, utilizaremos sobre el elemento contenedor la <a href="/css/maquetacion-y-colocacion/propiedad-display/">propiedad display</a>, y especificaremos el valor <code>flex</code> o <code>inline-flex</code> (<em>dependiendo de como queramos que se comporte el contenedor</em>):</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de elemento</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inline-flex</code></td>
+<td>Establece un contenedor en línea, similar a <code>inline-block</code> (ocupa solo el contenido).</td>
+</tr>
+<tr>
+<td><code>flex</code></td>
+<td>Establece un contenedor en bloque, similar a <code>block</code> (ocupa todo el ancho del padre).</td>
+</tr>
+</tbody>
+</table>
+<p>Por defecto, y sólo con esto, observaremos que los elementos se disponen todos sobre una misma línea. Esto ocurre porque estamos utilizando el modo <strong>flex</strong> y estaremos trabajando con ítems flexibles básicos, garantizando que no se desbordarán ni mostrarán los problemas que, por ejemplo, tienen los porcentajes sobre elementos que no utilizan flex.</p>
+<div class="example example-1">
+  <strong>display:</strong>
+  <button class="mode" data-property="display" data-value="flex">flex</button>
+  <button class="mode" data-property="display" data-value="inline-flex">inline-flex</button>
+  <div class="container">
+    <div class="item item-1">1</div>
+    <div class="item item-2">2</div>
+    <div class="item item-3">3</div>
+  </div>
+</div>
+<style>
+  .example-1 .container {
+    display: flex;
+    background: steelblue;
+  }
+  .example-1 .item {
+    border: 2px solid black;
+    background-color: grey;
+    color: white;
+    width: 50px;
+    height: 50px;
+  }
+</style>
+<script>
+  (() => {
+    const buttons = Array.from(document.querySelectorAll(".example-1 button.mode"));
+    const container = document.querySelector(".example-1 .container");
+    buttons.forEach(button => button.onclick = () => container.style[button.dataset.property] = button.dataset.value);
+  })();
+</script>
+<h3 id="dirección-de-los-ejes" tabindex="-1">Dirección de los ejes</h3>
+<p>Existen dos propiedades principales para manipular la dirección y comportamiento de los ítems a lo largo del eje principal del contenedor. Son las que veremos a continuación:</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Valor</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flex-direction</code></td>
+<td><strong>row</strong> | row-reverse | column | column-reverse</td>
+<td>Cambia la orientación del eje principal.</td>
+</tr>
+</tbody>
+</table>
+<p>Mediante la propiedad <code>flex-direction</code> podemos modificar la dirección del <strong>eje principal</strong> del contenedor para que se oriente en horizontal (<em>valor por defecto</em>) o en vertical. Además, también podemos incluir el sufijo <code>-reverse</code> para indicar que coloque los ítems en orden inverso.</p>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>row</code></td>
+<td>Establece la dirección del eje principal en <strong>horizontal</strong>.</td>
+</tr>
+<tr>
+<td><code>row-reverse</code></td>
+<td>Establece la dirección del eje principal en <strong>horizontal invertido</strong>.</td>
+</tr>
+<tr>
+<td><code>column</code></td>
+<td>Establece la dirección del eje principal en <strong>vertical</strong>.</td>
+</tr>
+<tr>
+<td><code>column-reverse</code></td>
+<td>Establece la dirección del eje principal en <strong>vertical invertido</strong>.</td>
+</tr>
+</tbody>
+</table>
+<p>Esto nos permite tener un control muy alto sobre el orden de los elementos en una página. Veamos la aplicación de estas propiedades sobre el ejemplo anterior, para modificar el flujo del eje principal del contenedor:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br>  <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span><br>  <span class="token property">background</span><span class="token punctuation">:</span> steelblue<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.item</span> <span class="token punctuation">{</span><br>  <span class="token property">background</span><span class="token punctuation">:</span> grey<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>A continuación podemos ver un ejemplo interactivo:</p>
+<div class="example example-2">
+  <strong>flex-direction:</strong>
+  <button class="mode" data-property="flex-direction" data-value="row">row</button>
+  <button class="mode" data-property="flex-direction" data-value="column">column</button>
+  <button class="mode" data-property="flex-direction" data-value="row-reverse">row-reverse</button>
+  <button class="mode" data-property="flex-direction" data-value="column-reverse">column-reverse</button>
+  <div class="container">
+    <div class="item item-1">1</div>
+    <div class="item item-2">2</div>
+    <div class="item item-3">3</div>
+  </div>
+</div>
+<style>
+  .example-2 .container {
+    display: flex;
+    background: steelblue;
+  }
+  .example-2 .item {
+    border: 2px solid black;
+    background-color: grey;
+    color: white;
+    width: 50px;
+    height: 50px;
+  }
+</style>
+<script>
+  (() => {
+    const buttons = Array.from(document.querySelectorAll(".example-2 button.mode"));
+    const container = document.querySelector(".example-2 .container");
+    buttons.forEach(button => button.onclick = () => container.style[button.dataset.property] = button.dataset.value);
+  })();
+</script>
+<h3 id="contenedor-flex-multilínea" tabindex="-1">Contenedor flex multilínea</h3>
+<p>En general, <strong>flex</strong> se suele utilizar para estructuras de una sola dimensión, es decir, contenedores que sólo van en una dirección. Sin embargo, existe una propiedad denominada <code>flex-wrap</code> con la que podemos especificar un comportamiento especial del contenedor.</p>
+<p>Por defecto, si un elemento no cabe dentro de nuestro contenedor flex, los elementos se harán más pequeños (<em>son flexibles</em>) para ajustarlos al contenedor. Este es el comportamiento por defecto de un contenedor <strong>flex</strong>. Sin embargo, con la propiedad <code>flex-wrap</code> podemos cambiar este comportamiento y permitir que nuestro contenedor flex se desborde, convirtiéndose en un <strong>contenedor flex multilínea</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Valor</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flex-wrap</code></td>
+<td><strong>nowrap</strong> | wrap | wrap-reverse</td>
+<td>Evita o permite el desbordamiento (multilinea).</td>
+</tr>
+</tbody>
+</table>
+<p>Los valores que puede tomar esta propiedad, son las siguientes:</p>
+<table>
+<thead>
+<tr>
+<th>Valor</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>nowrap</strong></td>
+<td>Los ítems se ajustan para ocupar el tamaño del contenedor (no permite desbordamiento en múltiples líneas).</td>
+</tr>
+<tr>
+<td>wrap</td>
+<td>Establece los ítems en modo multilínea (permite que se desborde el contenedor).</td>
+</tr>
+<tr>
+<td>wrap-reverse</td>
+<td>Establece los ítems en modo multilínea, pero en dirección inversa.</td>
+</tr>
+</tbody>
+</table>
+<p>Teniendo en cuenta estos valores de la propiedad <code>flex-wrap</code>, podemos conseguir cosas como la siguiente:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span><br>  <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span><br>  <span class="token property">background</span><span class="token punctuation">:</span> steelblue<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.item</span> <span class="token punctuation">{</span><br>  <span class="token property">background</span><span class="token punctuation">:</span> grey<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>En el caso de especificar <strong>nowrap</strong> (<em>u omitir la propiedad <code>flex-wrap</code></em>) en el contenedor, los 3 ítems se mostrarían en una misma línea del contenedor (<em>que es el comportamiento por defecto</em>). En ese caso, si tenemos 3 ítems, cada uno debería tener aproximadamente <code>66px</code> de ancho. Un tamaño de <code>100px</code> por ítem, sumaría un total de <code>300px</code>, que no cabrían en el contenedor de <code>200px</code>, por lo que <strong>flex</strong> reajusta los ítems flexibles para que quepan todos en la misma línea, manteniendo las mismas proporciones.</p>
+<p>Sin embargo, si especificamos <code>wrap</code> en la propiedad <code>flex-wrap</code>, lo que permitimos es que el contenedor se pueda desbordar, pasando a ser un contenedor <strong>multilínea</strong>, que mostraría los <strong>ítems</strong> que quepan en la primera linea y el resto en las líneas siguientes. El valor <code>wrap-reverse</code> haría exactamente lo mismo, pero con el orden inverso.</p>
+<div class="example example-3">
+  <strong>flex-wrap:</strong>
+  <button class="mode" data-property="flex-wrap" data-value="nowrap">nowrap</button>
+  <button class="mode" data-property="flex-wrap" data-value="wrap">wrap</button>
+  <button class="mode" data-property="flex-wrap" data-value="wrap-reverse">wrap-reverse</button>
+  <div class="container">
+    <div class="item item-1">1</div>
+    <div class="item item-2">2</div>
+    <div class="item item-3">3</div>
+  </div>
+</div>
+<style>
+  .example-3 .container {
+    display: flex;
+    flex-wrap: nowrap;
+    background: steelblue;
+    width: 200px;
+    min-height: 100px;
+  }
+  .example-3 .item {
+    border: 2px solid black;
+    background-color: grey;
+    color: white;
+    width: 50%;
+    height: 50px;
+  }
+</style>
+<script>
+  (() => {
+    const buttons = Array.from(document.querySelectorAll(".example-3 button.mode"));
+    const container = document.querySelector(".example-3 .container");
+    buttons.forEach(button => button.onclick = () => container.style[button.dataset.property] = button.dataset.value);
+  })();
+</script>
+<h3 id="atajo-dirección-de-los-ejes" tabindex="-1">Atajo: Dirección de los ejes</h3>
+<p>Recuerda que existe una propiedad de atajo (short-hand) llamada <code>flex-flow</code>, con la que podemos resumir los valores de las propiedades <code>flex-direction</code> y <code>flex-wrap</code>, especificándolas en una sola propiedad y ahorrándonos utilizar las propiedades concretas:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span><br>  <span class="token comment">/* flex-flow: &lt;flex-direction> &lt;flex-wrap>; */</span><br>  <span class="token property">flex-flow</span><span class="token punctuation">:</span> row wrap<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<h3 id="huecos-gaps" tabindex="-1">Huecos (gaps)</h3>
+<p>Existen dos propiedades de flexbox que han surgido recientemente: <code>row-gap</code> y <code>column-gap</code>. Dichas propiedades, permiten establecer el tamaño de un «hueco» entre ítems desde el elemento padre contenedor, y que eliminan la necesidad de estar utilizando <code>padding</code> o <code>margin</code> en los elementos hijos, con las complicaciones que ello suele conllevar:</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Valor</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>row-gap</code></td>
+<td><strong>normal</strong> | <badge-type class="size"></badge-type></td>
+<td>Espacio entre filas (sólo funciona con <code>flex-direction: column</code>)</td>
+</tr>
+<tr>
+<td><code>column-gap</code></td>
+<td><strong>normal</strong> | <badge-type class="size"></badge-type></td>
+<td>Espacio entre columnas (sólo funciona con <code>flex-direction: row</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Ten en cuenta que, como <strong>flex</strong> es un sistema para diseños de una sola dimensión, sólo una de las dos propiedades tendrá efecto. Si la propiedad <code>flex-direction</code> está establecida en <code>column</code>, podrás utilizar <code>row-gap</code>, y en el caso de que la propiedad <code>flex-direction</code> se encuentre en <code>row</code>, podrás utilizar el <code>column-gap</code>.</p>
+<p>Eso sí, es posible usar ambas si tenemos la propiedad <code>flex-wrap</code> definida a <code>wrap</code> y, por lo tanto, disponemos de multicolumnas flexbox, ya que en este caso si podemos separar elementos por filas y por columnas.</p>
+<blockquote>
+<p>Ten en cuenta que los huecos <strong>sólo se aplican entre elementos</strong>, y no entre un elemento hijo y su contenedor padre.</p>
+</blockquote>
+<h3 id="atajo-huecos" tabindex="-1">Atajo: Huecos</h3>
+<p>En <strong>Flex CSS</strong> existe una propiedad de atajo para los huecos, denominada <code>gap</code>. Con esta propiedad podemos indicar de una sola vez valores para las propiedades <code>row-gap</code> y <code>column-gap</code>, de forma que escribimos menos y es más cómodo en ciertas situaciones:</p>
+<table>
+<thead>
+<tr>
+<th>Propiedad</th>
+<th>Valor</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gap</code></td>
+<td><strong>0</strong> | <badge-type class="size"></badge-type></td>
+<td>Aplica el tamaño indicado para el hueco en ambos ejes.</td>
+</tr>
+<tr>
+<td><code>gap</code></td>
+<td><strong>0 0</strong> | <badge-type class="size"></badge-type> <badge-type class="size"></badge-type></td>
+<td>Aplica los tamaños indicados para el hueco del eje X y el eje Y.</td>
+</tr>
+</tbody>
+</table>
+<p>Como se puede ver, por defecto, el tamaño de los huecos es de <strong>0</strong>, sin embargo, podemos utilizar tanto las propiedades individuales como la propiedad de atajo <code>gap</code> para modificar estos tamaños.</p>
+<p>A continuación, podemos ver un ejemplo de su utilización en este fragmento de código:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span><br>  <span class="token comment">/* 2 parámetros: &lt;row> &lt;column> */</span><br>  <span class="token property">gap</span><span class="token punctuation">:</span> 4px 8px<span class="token punctuation">;</span><br>  <span class="token comment">/* Equivalente a */</span><br>  <span class="token property">row-gap</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span><br>  <span class="token property">column-gap</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span><br><br>  <span class="token comment">/* 1 parámetro: usa el mismo para ambos */</span><br>  <span class="token property">gap</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span><br>  <span class="token comment">/* Equivalente a */</span><br>  <span class="token property">row-gap</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span><br>  <span class="token property">column-gap</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Recuerda que esta característica es una de las últimas en implementarse en navegadores, por lo que en algunos navegadores muy antiguos podría darte problemas. Sin embargo, el soporte actual es bastante bueno:</p>
+<p><caniuse-support title="gap property for Flexbox" feature="flexbox-gap"
+    edge="84/y" firefox="63/y"
+    chrome="84/y" safari="14.1/y"
+    opera="70/y" ios_saf="14.5-14.8/y"
+    and_chr="105/y" and_ff="104/y">
+</caniuse-support></p>
+
+    <nav class="prev-next"><a class="bt prev" href="/css/maquetacion-y-colocacion/desplazamientos/" title="La propiedad float">
+    <span class="data">
+      <span>La propiedad float</span>
+      <small>Capítulo anterior</small>
+    </span>
+  </a><a class="bt next" href="/css/maquetacion-y-colocacion/flex-alinear/" title="Flex CSS: Alinear elementos">
+    <span class="icon">
+      <svg-icon name="arrow-right"></svg-icon>
+    </span>
+    <span class="data">
+      <span>Flex CSS: Alinear elementos</span>
+      <small>Capítulo siguiente</small>
+    </span>
+  </a></nav>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center; margin:auto; margin-top: 2em"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-0412426997270095"
+     data-ad-slot="3027930890"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+      <div class="related">
+
+  <div class="author">
+    <div class="author-wrapper">
+      <img loading="lazy" class="circle" src="/assets/manz.webp" alt="Manz">
+      <div>
+        <p>Docente, divulgador informático y <a href="https://manz.dev/">streamer de código</a>. Amante de <strong>CSS</strong>, <strong>Javascript</strong>
+          y de la plataforma web. Ha trabajado como profesor en la Universidad de La Laguna y es director del curso de
+          Programación web FullStack y FrontEnd de EOI desde Tenerife. En sus ratos libres, busca GIF de gatos en Internet.</p>
+        <p class="twitch-badge">
+          <a href="https://twitch.tv/ManzDev">
+            <svg class="twitch" viewBox="0 0 1024 1024">
+              <path style="fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1;" d="m262.451 12.904-178.26 178.26v641.672h213.905v178.26l178.26-178.26h142.576L939.809 512V12.904H262.45zm35.645 71.287h570.383v392.164L725.904 618.932H583.287L458.514 743.705V618.932H298.096V84.192zM494.158 208.51v216.36h71.328V208.51h-71.328zm196 0v216.36h71.328V208.51h-71.328z" />
+            </svg>
+            Sígueme en Twitch
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="comentarios">
+    <script async src="https://lenguajecss.disqus.com/count.js" id="dsq-count-scr"></script>
+<script>
+var disqus_config = function () {
+  this.page.path = location.pathname.endsWith("/") ? location.pathname.substring(0, location.pathname.length - 1) : location.pathname;
+  this.page.url = 'https://lenguajecss.com' + this.page.path;
+  this.page.identifier = this.page.url;
+};
+document.addEventListener('DOMContentLoaded', function() {
+  const coms = document.querySelector('#comentarios');
+  a = coms.querySelector('#disqus_button');
+  a.dataset.disqusIdentifier = 'https://lenguajecss.com' + (location.pathname.endsWith("/") ? location.pathname.substring(0, location.pathname.length - 1) : location.pathname);
+  a.addEventListener('click', function() {
+    const div = document.createElement('div');
+    div.id = 'disqus_thread';
+    coms.appendChild(div);
+    const d = document, s = d.createElement('script');
+    s.src = '//lenguajecss.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    this.remove();
+  });
+});
+</script>
+
+    <a class="disqus-comment-count" id="disqus_button" href="#disqus_thread" data-disqus-identifier="https://lenguajecss.com/css/maquetacion-y-colocacion/flex/">Leer comentarios</a>
+    <a class="discord" href="https://discord.manz.dev/">¡Accede a Discord y cuéntanos!</a>
+  </div>
+
+</div>
+
+    </div>
+    <div class="aside">
+      <div class="aside">
+
+  <div class="aside-top">
+    <a href="https://manz.dev/digitalocean" title="Empieza en DigitalOcean con 100$">
+      <img width="240" height="120" src="/assets/digital-ocean.png" alt="DigitalOcean">
+    </a>
+  </div><div class="video-related">
+  <div class="table">Hablo de esto en...</div>
+  <a href="https://youtu.be/5ckym8sBJ4E"><img width="220" height="124" src="https://img.youtube.com/vi/5ckym8sBJ4E/mqdefault.jpg" alt="Flex CSS: Introducción"></a>
+</div><script type="module">
+  const ANCHOR_ICON = /* svg */`
+    <svg class="anchor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205 205" width="36" height="36">
+      <path d="m140 129 16 16s-20 30-42 30V71c14-5 25-18 25-34 0-20-17-36-37-36-21 0-38 16-38 36 0 15 11 29 25
+              34v104c-26-2-42-27-42-27l18-18-65-9 10 63 17-17c15 12 32 37 73 37 51-1 63-29 76-40l19 19 10-64-65
+              10zM83 36c0-10 8-18 19-18s19 8 19 18c0 11-9 19-19 19s-19-8-19-19z"/>
+    </svg>`;
+  // Add inner links to sidebar menu
+  export const addInnerLinks = () => {
+    const summary = document.querySelector(".aside .summary .links");
+    const headers = Array.from(document.querySelectorAll(".content h3, .content h4"));
+    const tocLinks = [];
+    headers.forEach((e) => {
+      const link = `${location.origin}${location.pathname}#${e.id}`;
+      e.innerHTML = `<a class="permalink" href="${link}">${e.textContent} ${ANCHOR_ICON}</a>`;
+      const headerType = e.nodeName.toLowerCase();
+      const textContent = headerType === "h4" ? e.textContent.replace("La propiedad ", "").replace("La función ", "") : e.textContent;
+      tocLinks.push(`<a class="${headerType}" href="#${e.id}">${textContent}</a>`);
+    });
+    summary.insertAdjacentHTML("beforeEnd", tocLinks.join("\n"));
+  };
+
+  addInnerLinks();
+</script>
+
+<div class="summary">
+  <div class="table">Tabla de contenidos</div>
+  <div class="links"></div>
+</div>
+<div class="video-related">
+  <div class="table">Lo usamos en...</div><a href="https://youtu.be/jSia5SigafE"><img src="https://img.youtube.com/vi/jSia5SigafE/mqdefault.jpg" alt="Flex CSS: Introducción"></a></div></div>
+
+    </div>
+  </div><footer class="main">
+  <div class="square">
+    <a href="/"><h2>Lenguaje CSS</h2></a>
+    <div class="icons">
+      <a href="https://twitter.com/Manz" title="Twitter"><svg-icon type="social" name="twitter"></svg-icon></a>
+      <a href="https://twitch.tv/manzdev" title="Twitch"><svg-icon type="social" name="twitch"></svg-icon></a>
+      <a href="https://instagram.com/manz.dev" title="Instagram"><svg-icon type="social" name="instagram"></svg-icon></a>
+      <a href="https://youtube.com/ManzDev?sub_confirmation=1" title="YouTube"><svg-icon type="social" name="youtube"></svg-icon></a>
+      <a href="https://discord.manz.dev/" title="Servidor de Discord"><svg-icon type="social" name="discord"></svg-icon></a>
+      <a href="https://github.com/ManzDev" title="GitHub"><svg-icon type="social" name="github"></svg-icon></a>
+      <a href="https://codepen.io/Manz" title="Codepen"><svg-icon type="social" name="codepen"></svg-icon></a>
+      <a href="https://www.linkedin.com/in/joseromanhdez/" title="Linkedin"><svg-icon type="social" name="linkedin"></svg-icon></a>
+    </div>
+    <p>Documentación sobre CSS y las mejores herramientas y recursos para aprender a utilizar el lenguaje de estilos CSS (Hojas de estilo).</p>
+    <p id="footer">Creado y mantenido por <a href="https://twitter.com/Manz">@Manz</a> con <span title="<3">❤</span></p></div>
+</footer>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-136544-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

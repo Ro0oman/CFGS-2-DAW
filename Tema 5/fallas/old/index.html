@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Fallas</title>
+</head>
+<body>
+    <div class="contenido">
+        <table class="tabla">
+            <tr>
+                <td>Nombre 
+                    <button onclick="ordenarNombre()">
+                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    </button>
+                </td>
+                <td>Boceto</td>
+            </tr>
+        </table>
+    </div>
+     <script>
+        let fallas_datos;
+        fetch('../falles-fallas.json')
+            .then((response) => response.json())
+            .then(function(json){
+                fallas_datos = json;
+                load()
+            });
+
+        function load(){
+            contador = 0;
+            fallas_datos.forEach(element => {
+                contador++;
+                $(".tabla").append("<tr class='fila"+contador+"'></tr>");
+                $(".fila"+contador).append("<td id='nombre'>"+element.fields.fallera +"</td>");
+                $(".fila"+contador).append("<td><img src='"+element.fields.boceto+"' alt=''></td>"); 
+            });
+            todoOk();
+        }
+     </script>
+</body>
+</html>
